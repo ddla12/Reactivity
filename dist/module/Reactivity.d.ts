@@ -1,5 +1,5 @@
-import { Data, ReactiveData, Types, ReactivityOptions, ReactiveCallback, Middlewares } from "./@types.js";
-export declare class Reactivity implements ReactivityOptions {
+import { Data, ReactiveData, Types, ReactivityOptions, ReactiveCallback, Middlewares } from "./@types";
+export default class Reactivity implements ReactivityOptions {
     data: ReactiveData;
     beforeUpdating?: ReactiveCallback;
     updated?: ReactiveCallback;

@@ -1,5 +1,5 @@
-import { execCallbacks, setReactivity } from "./Helpers.js";
-export class Reactivity {
+import { execCallbacks, setReactivity } from "./Helpers";
+export default class Reactivity {
     constructor(options) {
         ({ beforeUpdating: this.beforeUpdating, updated: this.updated, middlewares: this.middlewares } = options);
         this.data = this.makeDataReactive(options.data);
@@ -15,7 +15,7 @@ export class Reactivity {
             }
         });
         return setReactivity({
-            data,
+            data: Object.entries(data).reduce((prev, [key, props]) => ({ ...prev, [key]: props.value }), {}),
             beforeUpdating: () => {
                 (this.beforeUpdating) && execCallbacks("beforeUpdating", this);
             },

@@ -11,11 +11,12 @@ const execMiddlewares = (callbacks, object, target, prop, receiver) => {
         console.error(e);
     }
 };
-export const execCallbacks = (callbacks, object) => {
+export function execCallbacks(callbacks, object) {
     (typeof object[callbacks] === "function")
         ? object[callbacks](object.data)
         : (Object.values(object[callbacks]).forEach((callback) => callback(object.data)));
-};
+}
+;
 export function setReactivity(data) {
     return new Proxy(data.data, {
         get: (obj, prop, val) => {

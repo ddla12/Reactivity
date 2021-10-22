@@ -1,0 +1,19 @@
+{
+    "name": "@darudlingilien/reactivity",
+    "version": "1.0.0",
+    "description": "A lightweight library to create simple reactive objects",
+    "main": "./index.js",
+    "author": "Darud Lingilien",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ddla12/Reactivity.git"
+    },
+    "keywords": [
+        "reactivity",
+        "proxy",
+        "async"
+    ],
+    "module": "./index.js",
+    "homepage": "https://github.com/ddla12/Reactivity"
+}
