@@ -18,9 +18,9 @@ export type Callbacks = Record<string, Function>;
 
 export type ReactiveData = Record<string, any>;
 
-export type Middleware = (target: object, prop: string, value: any) => boolean|void;
+export type Middleware = (target: object, prop: string, value: any) => boolean|void|Promise<void>;
 
-export type Callback = (data?: any) => void;
+export type Callback = (data?: any) => void|Promise<void>;
 
 export type MiddlewareCallbacks = Record<string, Middleware>;
 

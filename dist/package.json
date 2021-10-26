@@ -1,6 +1,6 @@
 {
     "name": "@darudlingilien/reactivity",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "A lightweight library to create simple reactive objects",
     "main": "./index.js",
     "author": "Darud Lingilien",

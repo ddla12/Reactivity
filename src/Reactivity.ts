@@ -1,11 +1,11 @@
-import { Data, ReactiveData, Types, ReactivityOptions, ReactiveCallback, Middlewares } from "./@types.js";
-import { execCallbacks, setReactivity } from "./Helpers.js";
+import { Data, ReactiveData, Types, ReactivityOptions, ReactiveCallback, Middlewares } from "./@types";
+import { execCallbacks, setReactivity } from "./Helpers";
 
 /**
  * Class to create reactive objects, with middlewares and callbacks
  * @class
  */
-export class Reactivity implements ReactivityOptions {
+export default class Reactivity implements ReactivityOptions {
     data            : ReactiveData;
     beforeUpdating? : ReactiveCallback;
     updated?        : ReactiveCallback;
@@ -35,7 +35,7 @@ export class Reactivity implements ReactivityOptions {
         })
 
         return setReactivity({
-            data,
+            data: Object.entries(data).reduce((prev, [key, props]) => ({ ...prev, [key]: props.value }), {}),
             beforeUpdating: () => {
                 (this.beforeUpdating) && execCallbacks("beforeUpdating", this);
             },

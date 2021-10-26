@@ -1,4 +1,4 @@
-import { ReactivityOptions } from "./@types.js";
+import { ReactivityOptions } from "./@types";
 
 const execMiddlewares = (
     callbacks: "getters"|"setters", 
@@ -25,7 +25,7 @@ const execMiddlewares = (
  * @param callbacks 
  * @param object 
  */
-export const execCallbacks = (callbacks: "beforeUpdating"|"updated", object: ReactivityOptions): void => {
+export function execCallbacks(callbacks: "beforeUpdating"|"updated", object: ReactivityOptions): void {
     (typeof object[callbacks] === "function")
         ? (object[callbacks] as Function)(object.data)
         : (Object.values(object[callbacks]!).forEach((callback) => callback(object.data)));
